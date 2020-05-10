@@ -1,0 +1,34 @@
+version: "3.1"
+services: 
+    postgres:
+        image: postgres:12-alpine
+        restart: always
+        environment: 
+            POSTGRES_PASSWORD: listlist
+            POSTGRES_USER: listlist
+            POSTGRES_DB: listlist
+        ports:
+            - 5432:5432
+        deploy:
+            resources:
+                limits:
+                    memory: '512M'
+                    cpus: '1'
+    listlist:
+        build: .
+        environment: 
+            SERVER.HOST: 0.0.0.0
+            SERVER.PORT: 8088
+            PG.USER: listlist
+            PG.PASSWORD: listlist
+            PG.HOST: postgres
+            PG.PORT: 5432
+            PG.DBNAME: listlist
+            PG.POOL.MAX_SIZE: 30
+        deploy:
+            resources:
+                limits:
+                    memory: '512M'
+                    cpus: '1'
+        ports:
+            - 8088:8088

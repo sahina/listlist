@@ -1,0 +1,7 @@
+/target
+
+.env
+.envrc
+
+.idea
+*.iml
