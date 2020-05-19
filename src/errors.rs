@@ -39,6 +39,14 @@ impl AppError {
             _ => "Unexpected error".to_string(),
         }
     }
+
+    pub fn db_error(err: impl ToString) -> AppError {
+        AppError {
+            message: None,
+            cause: Some(err.to_string()),
+            error_type: AppErrorType::DbError,
+        }
+    }
 }
 
 impl Display for AppError {
