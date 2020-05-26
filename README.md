@@ -34,7 +34,6 @@ Run app in debug mode.
 
 ```
 cargo run
-
 ```
 
 

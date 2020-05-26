@@ -1,9 +1,10 @@
+use std::fmt::{Display, Error, Formatter};
+use std::result::Result;
+
 use actix_web::error::ResponseError;
 use actix_web::http::StatusCode;
 use actix_web::HttpResponse;
 use serde::Serialize;
-use std::fmt::{Display, Error, Formatter};
-use std::result::Result;
 
 #[derive(Debug)]
 pub enum AppErrorType {
